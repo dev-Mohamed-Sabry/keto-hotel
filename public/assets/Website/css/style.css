@@ -189,6 +189,19 @@ img {
      border: none !important;
 }
 
+.navbar-form input {
+     border: none !important;
+}
+
+.navbar-collapse {
+     display: flex;
+     align-items: center;
+}
+
+.navbar-nav.ml-auto {
+     margin-left: auto !important;
+}
+
 .badge {
      font-weight: 500;
 }
@@ -284,6 +297,10 @@ button {
 .navigation.navbar-dark .navbar-nav .show>.nav-link {
      color: #fe0000;
      border-bottom: #fe0000 solid 3px;
+}
+
+#navbarsExample04 {
+     gap: 100px;
 }
 
 .navbar-expand-md .navbar-nav {

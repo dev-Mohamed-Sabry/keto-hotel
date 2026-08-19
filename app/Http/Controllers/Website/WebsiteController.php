@@ -20,6 +20,10 @@ class WebsiteController extends Controller
     {
         return view('Website.Frontend.rooms');
     }
+    public function gallery()
+    {
+        return view('Website.Frontend.gallery');
+    }
     public function blog()
     {
         return view('Website.Frontend.blog');

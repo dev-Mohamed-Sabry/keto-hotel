@@ -56,38 +56,80 @@
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark">
+
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
                                 aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
+
                             <div class="collapse navbar-collapse" id="navbarsExample04">
-                                <ul class="navbar-nav mr-auto">
+                                {{-- Main Menu --}}
+                                <ul class="navbar-nav main-nav">
                                     <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
                                         <a class="nav-link" href="{{ route('home') }}">Home</a>
                                     </li>
+
                                     <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
                                         <a class="nav-link" href="{{ route('about') }}">About</a>
                                     </li>
+
                                     <li class="nav-item {{ request()->routeIs('rooms') ? 'active' : '' }}">
                                         <a class="nav-link" href="{{ route('rooms') }}">Rooms</a>
                                     </li>
+
                                     <li class="nav-item {{ request()->routeIs('gallery') ? 'active' : '' }}">
                                         <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
                                     </li>
+
                                     <li class="nav-item {{ request()->routeIs('blog') ? 'active' : '' }}">
                                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                                     </li>
+
                                     <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
-                                        <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
+                                        <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                                     </li>
                                 </ul>
+                                {{-- Auth Menu --}}
+
+                                <ul class="navbar-nav main-nav">
+                                    @guest
+                                        <li class="nav-item {{ request()->routeIs('login') ? 'active' : '' }}">
+                                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                        </li>
+
+                                        <li class="nav-item {{ request()->routeIs('register') ? 'active' : '' }}">
+                                            <a class="nav-link btn-book-now" href="{{ route('register') }}">
+                                                Register
+                                            </a>
+                                        </li>
+                                    @endguest
+
+                                    @auth
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('dashboard') }}">
+                                                Dashboard
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <form action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="nav-link border-0 bg-transparent">
+                                                    Logout
+                                                </button>
+                                            </form>
+                                        </li>
+                                    @endauth
+                                </ul>
                             </div>
-                        </nav>
+
                     </div>
+                    </nav>
                 </div>
             </div>
+        </div>
         </div>
     </header>
 
@@ -127,6 +169,30 @@
                             <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a
                                     href="{{ route('contact') }}">
                                     Contact Us</a></li>
+                            @guest
+                                <li class="{{ request()->routeIs('register') ? 'active' : '' }}">
+                                    <a href="{{ route('register') }}">Register</a>
+                                </li>
+
+                                <li class="{{ request()->routeIs('login') ? 'active' : '' }}">
+                                    <a href="{{ route('login') }}">Login</a>
+                                </li>
+                            @endguest
+
+                            @auth
+                                <li>
+                                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                                </li>
+
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn p-0 border-0 bg-transparent text-white">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </li>
+                            @endauth
                         </ul>
                     </div>
                     <div class="col-md-4">
