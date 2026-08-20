@@ -95,12 +95,13 @@
 
                                 <ul class="navbar-nav main-nav">
                                     @guest
-                                        <li class="nav-item {{ request()->routeIs('login') ? 'active' : '' }}">
-                                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                        <li class="nav-item">
+                                            <a class=" btn btn-secondary text-light m-0"
+                                                href="{{ route('login') }}">Login</a>
                                         </li>
 
-                                        <li class="nav-item {{ request()->routeIs('register') ? 'active' : '' }}">
-                                            <a class="nav-link btn-book-now" href="{{ route('register') }}">
+                                        <li class="mx-2 nav-item">
+                                            <a class=" btn btn-primary text-light" href="{{ route('register') }}">
                                                 Register
                                             </a>
                                         </li>
@@ -108,7 +109,8 @@
 
                                     @auth
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('dashboard') }}">
+                                            <a class="nav-link"
+                                                href="{{Auth::user()->usertype === 'admin' ? route('admin.dashboard') : route('dashboard') }}">
                                                 Dashboard
                                             </a>
                                         </li>

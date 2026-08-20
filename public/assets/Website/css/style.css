@@ -21,7 +21,7 @@
 @import url(font-awesome.min.css);
 @import url(meanmenu.css);
 @import url(owl.carousel.min.css);
-@import url(swiper.min.css);
+/* @import url(swiper.min.css); */
 @import url(slick.css);
 @import url(jquery.fancybox.min.css);
 @import url(jquery-ui.css);
@@ -275,7 +275,7 @@ button {
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link {
-     padding: 7px 0px 27px 0px;
+     /* padding: 7px 0px 27px 0px; */
      margin: 0 22px;
      color: #010101;
      font-size: 16px;
@@ -300,7 +300,7 @@ button {
 }
 
 #navbarsExample04 {
-     gap: 100px;
+     gap: 35px;
 }
 
 .navbar-expand-md .navbar-nav {
